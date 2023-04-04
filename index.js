@@ -47,17 +47,20 @@ const superHeroTeams = [
 ];
 
 // Función que itera sobre los poderes
-function* iteratePowers(superPowers) { 
-  for (let i = 0; i < superPowers.length; i++) { 
-    const superPower = superPowers[i]; 
-    yield superPower; 
+function* iteratePowers(superPowers) {
+  for (let i = 0; i < superPowers.length; i++) {
+    const superPower = superPowers[i];
+    yield superPower;
   }
 }
 
+
+let superHeroName = ''
 // Función que itera sobre heroes
 function* iterateSuperHeores(superHeores) {
   for (let i = 0; i < superHeores.length; i++) {
     const superHeore = superHeores[i];
+    superHeroName = superHeore.name;
     yield* iteratePowers(superHeore.superPowers);
   }
 }
@@ -94,3 +97,4 @@ while (!result.done) {
   }
 }
 console.log(`El sistema realizo ${counter} comparaciones en el conjunto de datos`);
+console.log(`El nombre del super heroe es: ${superHeroName}`);
